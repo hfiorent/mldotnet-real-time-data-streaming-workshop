@@ -5,7 +5,9 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  buildConfiguration: 'Release'
+- group: fraud-detection
+- name: buildConfiguration
+  value: 'Release'
 
 steps:
 - script: dotnet build src/machine-learning/FraudPredictionTrainer/FraudPredictionTrainer.csproj --configuration $(buildConfiguration)
